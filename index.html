@@ -19,10 +19,35 @@
     </style>
     <div id="time">time</div>
     <script>
+      hoursInString = (hours) => {
+        if (hours < 10) {
+          return "0" + String(hours);
+        } else {
+          return String(hours);
+        }
+      };
+      minutesInString = (minutes) => {
+        if (minutes < 10) {
+          return "0" + String(minutes);
+        } else {
+          return String(minutes);
+        }
+      };
+      secondsInString = (seconds) => {
+        if (seconds < 10) {
+          return "0" + String(seconds);
+        } else {
+          return String(seconds);
+        }
+      };
       updateTime = () => {
         date = new Date();
         document.getElementById("time").innerHTML =
-          date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+          hoursInString(date.getHours()) +
+          ":" +
+          minutesInString(date.getMinutes()) +
+          ":" +
+          secondsInString(date.getSeconds());
       };
       updateTime();
       interval = setInterval(() => updateTime(), 1000);
