@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
     <title>Clock using pure js</title>
   </head>
   <body>
@@ -10,11 +14,22 @@
       html {
         height: 100%;
         width: 100%;
+        margin: 0;
         background-color: pink;
+        font-family: "Inter", "Roboto", "Helvetica Neue", sans-serif;
+      }
+
+      body {
+        height: 100%;
+        margin: 0;
       }
 
       #time {
+        height: 100%;
         font-size: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
     </style>
     <div id="time">time</div>
