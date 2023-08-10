@@ -31,9 +31,52 @@
         justify-content: center;
         align-items: center;
       }
+
+      #t0,
+      #t1,
+      #t2,
+      #t3,
+      #t4,
+      #t5,
+      #t6,
+      #t7 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.4s ease-in-out;
+        padding: 10px 0px;
+      }
+
+      /* numbers */
+      #t0,
+      #t1,
+      #t3,
+      #t4,
+      #t6,
+      #t7 {
+        width: 50px;
+        height: 100px;
+      }
+
+      /* colons */
+      #t2,
+      #t5 {
+        width: 30px;
+      }
     </style>
-    <div id="time">time</div>
+    <div id="time">
+      <div id="t0">0</div>
+      <div id="t1">0</div>
+      <div id="t2">:</div>
+      <div id="t3">0</div>
+      <div id="t4">0</div>
+      <div id="t5">:</div>
+      <div id="t6">0</div>
+      <div id="t7">0</div>
+    </div>
     <script>
+      timeChars = ["0", "0", ":", "0", "0", ":", "0", "0"];
+
       hoursInString = (hours) => {
         if (hours < 10) {
           return "0" + String(hours);
@@ -57,12 +100,17 @@
       };
       updateTime = () => {
         date = new Date();
-        document.getElementById("time").innerHTML =
+        timeStr =
           hoursInString(date.getHours()) +
           ":" +
           minutesInString(date.getMinutes()) +
           ":" +
           secondsInString(date.getSeconds());
+        for (let i = 0; i < timeStr.length; ++i) {
+          timeChars[i] = timeStr.charAt(i);
+          document.getElementById("t".concat(String(i))).innerHTML =
+            timeChars[i];
+        }
       };
       updateTime();
       interval = setInterval(() => updateTime(), 1000);
