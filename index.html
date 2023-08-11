@@ -156,6 +156,7 @@
           dayInString(date.getDate()) +
           " " +
           yearInString(date.getFullYear());
+        document.title = "Current time: " + timeStr.substring(0, 5);
       };
       updateTime();
       interval = setInterval(() => updateTime(), 1000);
