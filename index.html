@@ -24,8 +24,21 @@
         margin: 0;
       }
 
-      #time {
+      #clock {
         height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #date {
+        font-size: 44px;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      #time {
         font-size: 80px;
         display: flex;
         justify-content: center;
@@ -64,19 +77,45 @@
         width: 30px;
       }
     </style>
-    <div id="time">
-      <div id="t0">0</div>
-      <div id="t1">0</div>
-      <div id="t2">:</div>
-      <div id="t3">0</div>
-      <div id="t4">0</div>
-      <div id="t5">:</div>
-      <div id="t6">0</div>
-      <div id="t7">0</div>
+    <div id="clock">
+      <div id="date">000 00 0000</div>
+      <div id="time">
+        <div id="t0">0</div>
+        <div id="t1">0</div>
+        <div id="t2">:</div>
+        <div id="t3">0</div>
+        <div id="t4">0</div>
+        <div id="t5">:</div>
+        <div id="t6">0</div>
+        <div id="t7">0</div>
+      </div>
     </div>
     <script>
       timeChars = ["0", "0", ":", "0", "0", ":", "0", "0"];
 
+      yearInString = (year) => {
+        return year;
+      };
+      monthInString = (month) => {
+        const months = [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December",
+        ];
+        return months[month];
+      };
+      dayInString = (day) => {
+        return day;
+      };
       hoursInString = (hours) => {
         if (hours < 10) {
           return "0" + String(hours);
@@ -111,6 +150,12 @@
           document.getElementById("t".concat(String(i))).innerHTML =
             timeChars[i];
         }
+        document.getElementById("date").innerHTML =
+          monthInString(date.getMonth()) +
+          " " +
+          dayInString(date.getDate()) +
+          " " +
+          yearInString(date.getFullYear());
       };
       updateTime();
       interval = setInterval(() => updateTime(), 1000);
