@@ -1,4 +1,4 @@
-# Clock using pure js
+# Clock using vanilla js
 
 - [Nodemon](#nodemon)
 
