@@ -7,6 +7,11 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="shortcut icon"
+      type="image/jpg"
+      href="https://img.freepik.com/free-vector/hand-painted-peach-pattern_23-2148974955.jpg?w=826&t=st=1691757901~exp=1691758501~hmac=69f0a2a8ac7b2d9668282628e1c00db0a6f295fddcbe22583e636aebe90dc506"
+    />
     <title>Clock using vanilla js</title>
   </head>
   <body>
@@ -22,14 +27,35 @@
       body {
         height: 100%;
         margin: 0;
+        background-image: url("https://img.freepik.com/free-vector/hand-painted-peach-pattern_23-2148974955.jpg?w=826&t=st=1691757901~exp=1691758501~hmac=69f0a2a8ac7b2d9668282628e1c00db0a6f295fddcbe22583e636aebe90dc506");
+      }
+
+      footer {
+        bottom: 0;
+        position: fixed;
+        padding: 10px;
+        font-size: 14px;
+      }
+
+      #container {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
 
       #clock {
-        height: 100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        background-color: rgba(255, 192, 203, 0.6);
+        border-radius: 40px;
+        border: 4px solid #eb9fad;
+        padding-top: 40px;
+        padding-bottom: 20px;
+        padding-left: 60px;
+        padding-right: 60px;
       }
 
       #date {
@@ -77,19 +103,29 @@
         width: 30px;
       }
     </style>
-    <div id="clock">
-      <div id="date">000 00 0000</div>
-      <div id="time">
-        <div id="t0">0</div>
-        <div id="t1">0</div>
-        <div id="t2">:</div>
-        <div id="t3">0</div>
-        <div id="t4">0</div>
-        <div id="t5">:</div>
-        <div id="t6">0</div>
-        <div id="t7">0</div>
+    <div id="container">
+      <div id="clock">
+        <div id="date">000 00 0000</div>
+        <div id="time">
+          <div id="t0">0</div>
+          <div id="t1">0</div>
+          <div id="t2">:</div>
+          <div id="t3">0</div>
+          <div id="t4">0</div>
+          <div id="t5">:</div>
+          <div id="t6">0</div>
+          <div id="t7">0</div>
+        </div>
       </div>
     </div>
+
+    <footer>
+      Image by
+      <a
+        href="https://www.freepik.com/free-vector/hand-painted-peach-pattern_14455398.htm#query=peach&position=5&from_view=keyword&track=sph"
+        >Freepik</a
+      >
+    </footer>
     <script>
       timeChars = ["0", "0", ":", "0", "0", ":", "0", "0"];
 
